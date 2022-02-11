@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">View Message</h3>
+        </div>
+    <div class="card-body table-responsive p-0" style="height: 300px;">
+        <table class="table table-head-fixed text-nowrap">
+          <thead>
+            <tr>
+                <th>Message</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Replay</th> 
+                <th>Delete</th> 
+            </tr>
+          </thead>
+          <tbody>
+        {% for i in data6 %}   
+        <tr>
+            <td style="white-space:pre-wrap; word-wrap:break-word">{{i.message}}</td>
+            <td style="white-space:pre-wrap; word-wrap:break-word">{{i.name}}</td>
+            <td style="white-space:pre-wrap; word-wrap:break-word">{{i.email}}</td>
+            <td style="white-space:pre-wrap; word-wrap:break-word">{{i.subject}}</td>
+            <td><a href="{% url 'Messagebox' %}" class="btn btn-success">Replay</a></td>
+            <td><a href="{% url 'cdelete' coid=i.id %}"><button type="button" class="btn btn-danger">Delete</button></a></td> 
+        </tr>  
+        {% endfor %}
+          </tbody> 
+        </table>
+      </div>
+    </div>
+</div>
+</div>
+{% endblock %}

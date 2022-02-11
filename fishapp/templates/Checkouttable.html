@@ -1,0 +1,35 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">View Checkout list</h3>
+        </div>
+    <div class="card-body table-responsive p-0" style="height: 300px;">
+        <table class="table table-head-fixed text-nowrap">
+          <thead>
+            <tr>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                <th>Address</th>
+            </tr>
+          </thead>
+          <tbody>
+        {% for i in data7 %}   
+        <tr>
+            <td style="white-space:pre-wrap; word-wrap:break-word">{{i.fname}}</td>
+            <td style="white-space:pre-wrap; word-wrap:break-word">{{i.mobile}}</td>
+            <td style="white-space:pre-wrap; word-wrap:break-word">{{i.email}}</td>
+            <td style="white-space:pre-wrap; word-wrap:break-word">{{i.address}}</td>
+        </tr>  
+        {% endfor %}
+          </tbody> 
+        </table>
+      </div>
+    </div>
+</div>
+</div>
+{% endblock %}

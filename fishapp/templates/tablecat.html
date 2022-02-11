@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Category Table</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0" style="height: 300px;">
+          <table class="table table-head-fixed text-nowrap">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>image</th>
+                <th>Edit/Update</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for i in data %}
+              <tr>
+                <td style="white-space:pre-wrap; word-wrap:break-word">{{i.fname}}</td>
+                <td style="white-space:pre-wrap; word-wrap:break-word">{{i.descpshn}}</td>
+                <td><img src="{{i.img.url}}" width="100" height="100"></td>
+                <td> <a href="{% url 'catedit' cpid=i.id %}"><button type="button" class="btn btn-success">Edit....</button> <a href="{% url 'catdelete' cdid=i.id %}"><button type="button" class="btn btn-danger">Delete....</button></a></td>
+              </tr>  
+            {% endfor %}
+          </tbody> 
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+  </div>
+</div>
+{% endblock %}

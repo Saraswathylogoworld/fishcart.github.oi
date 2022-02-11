@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Product Table</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0" style="height: 300px;">
+          <table class="table table-head-fixed text-nowrap">
+            <thead>
+              <tr>
+                <th>Recipe Name</th>
+                <th>Instructions</th>
+                <th>Ingredents</th>
+                <th>image</th>
+                <th>Edit/Update</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for i in data %}
+              <tr>
+                <td style="white-space:pre-wrap; word-wrap:break-word">{{i.rname}}</td>
+                <td style="white-space:pre-wrap; word-wrap:break-word">{{i.instshn}}</td>
+                <td style="white-space:pre-wrap; word-wrap:break-word">{{i.ingds}}</td>
+                <td ><img src="{{i.img.url}}" width="100" height="100"></td>
+                <td> <a href="{% url 'redit' rid=i.id %}"><button type="button" class="btn btn-success">Edit....</button> <a href="{% url 'rdelete' rdid=i.id %}"><button type="button" class="btn btn-danger">Delete....</button></a></td>
+              </tr>  
+            {% endfor %}
+          </tbody> 
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+  </div>
+</div>
+{% endblock %}

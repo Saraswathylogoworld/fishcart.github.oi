@@ -1,0 +1,54 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<div class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">EDIT PRODUCT FORM</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    {% for i in data %}
+    <form action="{% url 'update' uid=i.id %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+      <div class="card-body">
+        <div class="form-group">
+          <label for="name">Product Name</label>
+          <input type="text" class="form-control" id="name" value="{{i.pname}}" placeholder="Product" name="pname">
+        </div>
+        
+        <div class="form-group">
+          <label for="Category">Category</label>
+          <select id="cate" name="cate">
+             
+              <option value="{{i.cate}}">{{i.cate}}</option>
+            
+          </select>
+        </div>
+
+        <div class="from-group">
+            <label for="wt">Weight</label>
+            <input type="number" class="form-control" id="wt" value="{{i.weight}}" placeholder="Weight" name="weight"> 
+        </div>
+        <div class="from-group">
+            <label for="pri">Price</label>
+            <input type="number" class="form-control" id="pri" value="{{i.price}}" placeholder="Price" name="pri"> 
+        </div>
+        <div class="form-group">
+          <label for="file">Upload Image</label>
+          <div class="input-group">
+            <div class="file">
+              <input type="file" class="file" id="file" name="img">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.card-body -->
+
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+    {% endfor %}
+</div>
+
+{% endblock %}

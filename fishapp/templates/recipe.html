@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<div class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title">RECIPE FORM</h3>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form action="{% url 'display2' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+      <div class="card-body">
+        <div class="form-group">
+          <label for="rname">Recipe Name</label>
+          <input type="text" class="form-control" id="rname" placeholder="Recipe name" name="rname">
+        </div>
+        
+        <div class="from-group">
+            <label for="instshn">Instructions</label>
+            <textarea style="white-space:pre-wrap; word-wrap:break-word" name="instshn" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+        </div>
+
+        <div class="from-group">
+            <label for="ingds">Ingredents</label>
+            <textarea style="white-space:pre-wrap; word-wrap:break-word" name="ingds" class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="file">Upload Image</label>
+          <div class="input-group">
+            <div class="file">
+              <input type="file" class="file" id="file" name="img">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.card-body -->
+
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+</div>
+
+{% endblock %}
